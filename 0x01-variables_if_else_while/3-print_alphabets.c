@@ -5,18 +5,16 @@
   */
 int main(void)
 {
-char inimin, lastmin, iniMay, lastMay;
+char inimin, iniMay;
 inimin = 'a';
-lastmin = 'z';
 iniMay = 'A';
-lastMay = 'Z';
-while (inimin <= lastmin)
+while (inimin <= 'z')
 {
 putchar(inimin);
 inimin++;
 }
 putchar('\n');
-while (iniMay <= lastMay)
+while (iniMay <= 'Z')
 {
 putchar(iniMay);
 iniMay++;
