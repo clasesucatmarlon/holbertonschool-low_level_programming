@@ -13,7 +13,6 @@ while (inimin <= 'z')
 putchar(inimin);
 inimin++;
 }
-putchar('\n');
 while (iniMay <= 'Z')
 {
 putchar(iniMay);
