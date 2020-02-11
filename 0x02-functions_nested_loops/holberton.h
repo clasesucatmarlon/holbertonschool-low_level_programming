@@ -31,4 +31,7 @@ void jack_bauer(void);
 /* task 9 - prints the 9 times table, starting with 0*/
 void times_table(void);
 
+/* task 10 - adds two integers and returns the result */
+int add(int, int);
+
 #endif
