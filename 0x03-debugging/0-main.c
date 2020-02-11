@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * main - function test for a postitive_or_negative()
+ * main - function test for a postitive_or_negative
  * Return: value zero
  */
 
