@@ -1,11 +1,11 @@
 #include "holberton.h"
 /**
  * add - Function agregue two int
- * @n: value a
- * @m: value b
+ * @va: value n
+ * @vb: value m
  * Return: int
  */
-int add(int n, int m)
+int add(int va, int vb)
 {
-return (n + m);
+return (va + vb);
 }
