@@ -34,4 +34,7 @@ void times_table(void);
 /* task 10 - adds two integers and returns the result */
 int add(int, int);
 
+/* task 11 - prints all natural numbers from n to 98, followed by a new line */
+void print_to_98(int n);
+
 #endif
