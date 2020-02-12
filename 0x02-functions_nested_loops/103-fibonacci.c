@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * main - that finds and prints the sum of the even-valued terms 
+ * main - that finds and prints the sum of the even-valued term
  * Return: value zero
  */
 int main(void)
