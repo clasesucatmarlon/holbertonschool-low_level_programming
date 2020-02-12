@@ -13,10 +13,10 @@ printf("%.f", termino1);
 printf(", ");
 printf("%.f", termino2);
 printf(", ");
-for (c = 2; c <= 98; c++)
+for (c = 1; c <= 96; c++)
 {
 terminof = termino1 + termino2;
-if (c != 98)
+if (c != 96)
 {
 printf("%.f, ", terminof);
 }
