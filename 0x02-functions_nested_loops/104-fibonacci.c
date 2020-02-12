@@ -16,9 +16,14 @@ printf(", ");
 for (c = 0; c < 96; c++)
 {
 terminof = termino1 + termino2;
+if (c != 95)
+{
+printf("%.f, ", terminof);
+}
+else
+{
 printf("%.f", terminof);
-if (!(c == 95))
-printf(", ");
+}
 termino1 = termino2;
 termino2 = terminof;
 }
