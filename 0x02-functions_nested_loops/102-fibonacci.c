@@ -1,8 +1,8 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- *main - do something
- *Return: something
+ * main - prints the first 50 Fibonacci numbers, starting with 1 and 2
+ * Return: value zero
  */
 int main(void)
 {
