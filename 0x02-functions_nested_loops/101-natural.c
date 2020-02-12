@@ -10,10 +10,10 @@ int suma5, c5, c3, suma3, total;
 suma5 = 0;
 suma3 = 0;
 c5 = 5;
-c2 = 3;
+c3 = 3;
 while (c5 < 1024)
 {
-suma5 = suma5 + c;
+suma5 = suma5 + c5;
 c5 = c5 + 5;
 }
 while (c3 < 1024)
@@ -21,7 +21,7 @@ while (c3 < 1024)
 if (((c3 % 10) == 5) || ((c3 % 10) == 0))
 suma3 = suma3;
 else
-suma3 = suma3 + c2;
+suma3 = suma3 + c3;
 c3 = c3 + 3;
 }
 total = suma5 + suma3;
