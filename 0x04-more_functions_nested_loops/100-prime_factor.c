@@ -6,22 +6,23 @@
  */
 int main(void)
 {
-long long int valor, i, div, aux, op, num;
+long int valor, div, op, aux;
 valor = 612852475143;
 div = 2;
 aux = valor;
 while (aux != 1)
 {
-if (aux % div == 0)
+if ((aux % div) == 0)
 {
 op = aux / div;
 aux = op;
-num = div;
 }
 else
 {
 div++;
 }
 }
-printf("%lld\n", div);
+printf("%ld", div);
+printf("\n");
+return (0);
 }
