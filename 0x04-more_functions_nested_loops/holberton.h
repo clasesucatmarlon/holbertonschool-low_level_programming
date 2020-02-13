@@ -28,5 +28,7 @@ void print_line(int n);
 /* task 7 - draws a diagonal line on the terminal */
 void print_diagonal(int n);
 
+/* task 8 - prints a square, followed by a new line */
+void print_square(int size);
 
 #endif
