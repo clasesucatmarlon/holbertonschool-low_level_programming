@@ -34,4 +34,7 @@ void print_square(int size);
 /* task 10 - prints a triangle */
 void print_triangle(int size);
 
+/* task 101 - function that prints an integer */
+void print_number(int n);
+
 #endif
