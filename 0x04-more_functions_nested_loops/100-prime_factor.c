@@ -15,8 +15,6 @@ while (aux != 1)
 if (aux % div == 0)
 {
 op = aux / div;
-printf("%lld / %lld = %lld", aux, div, op);
-printf("\n");
 aux = op;
 num = div;
 }
@@ -25,5 +23,5 @@ else
 div++;
 }
 }
-printf("el numero buscado es %lld\n ", div);
+printf("%lld\n", div);
 }
