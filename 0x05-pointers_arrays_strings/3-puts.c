@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * void _puts - prints a string, followed by a new line, to stdout
+ * _puts - prints a string, followed by a new line, to stdout
  * @str: value input
  * Return: void
  */
