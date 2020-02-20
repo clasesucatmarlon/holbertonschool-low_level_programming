@@ -10,5 +10,8 @@ char *_strncat(char *dest, char *src, int n);
 /* task 2 - copies a string */
 char *_strncpy(char *dest, char *src, int n);
 
+/* task 3 - compares two strings */
+int _strcmp(char *s1, char *s2); 
+
 
 #endif
