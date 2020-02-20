@@ -9,22 +9,20 @@
 
 void reverse_array(int *a, int n)
 {
-	int i, j, m = 0, k;
+	int i, j, k;
 	int aux[1024];
+
+	k = n - 1;
 
 	for (i = 0; i < n; i++)
 	{
+		aux[i] = a[k];
+		k--;
 	}
 
-	for (j = i - 1; j >= 0; j--)
+	for (j = 0; j < n; j++)
 	{
-		aux[j] = a[m];
-		m++;
-	}
-
-	for (k = 0; k <= i; k++)
-	{
-		a[k] = aux[k];
+		a[j] = aux[j];
 	}
 }
 
