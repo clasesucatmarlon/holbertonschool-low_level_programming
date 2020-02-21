@@ -13,7 +13,7 @@ char *rot13(char *src)
 	char ent[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char sal[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	for (j = 0; src[i] != '\0'; i++)
+	for (i = 0; src[i] != '\0'; i++)
 	{
 		for (j = 0; ent[j] != '\0'; j++)
 		{
