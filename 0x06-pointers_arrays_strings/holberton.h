@@ -1,6 +1,9 @@
 #ifndef HOLBERTON
 #define HOLBERTON
 
+/* Function Putchar */
+int _putchar(char c);
+
 /* task 0 - concatenates two strings */
 char *_strcat(char *dest, char *src);
 
