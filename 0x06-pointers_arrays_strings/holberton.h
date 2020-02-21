@@ -25,4 +25,10 @@ char *cap_string(char *);
 /* task 7 - encodes a string into 1337 */
 char *leet(char *);
 
+/* task 8 - encodes a string using rot13 */
+char *rot13(char *);
+
+/* task 9 - prints an integer */
+void print_number(int n);
+
 #endif
