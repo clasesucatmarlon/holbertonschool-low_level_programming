@@ -30,11 +30,10 @@ putchar(32);
 }
 num4++;
 }
-aux2 = -1;
+ aux2 = -1;
 }
-/* break when the first two digit number is 98  */
 if (num1 == 9 && num2 == 8)
-break;
+	break;
 }
 }
 putchar('\n');

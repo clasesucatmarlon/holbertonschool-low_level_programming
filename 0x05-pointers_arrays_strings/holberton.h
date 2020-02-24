@@ -22,5 +22,16 @@ void print_rev(char *s);
 /* task 5 - reverses a string */
 void rev_string(char *s);
 
+/* task 6 - prints every other character of a string, starting with the first character */
+void puts2(char *str);
+
+/* task 7 - prints half of a string */
+void puts_half(char *str);
+
+/* task 8 - prints n elements of an array of integers */
+void print_array(int *a, int n);
+
+/* task 9 - copies the string pointed to by src to buffer pointed to by dest */
+char *_strcpy(char *dest, char *src);
 
 #endif

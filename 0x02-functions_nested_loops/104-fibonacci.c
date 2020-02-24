@@ -6,23 +6,23 @@
  */
 int main(void)
 {
-float termino1, termino2, terminof, c;
+long double termino1, termino2, terminof, c;
 termino1 = 1;
 termino2 = 2;
-printf("%.f", termino1);
+printf("%Lf", termino1);
 printf(", ");
-printf("%.f", termino2);
+printf("%Lf", termino2);
 printf(", ");
-for (c = 1; c <= 96; c++)
+for (c = 0; c < 96; c++)
 {
 terminof = termino1 + termino2;
-if (c != 96)
+if (c != 95)
 {
-printf("%.f, ", terminof);
+printf("%Lf, ", terminof);
 }
 else
 {
-printf("%.f", terminof);
+printf("%Lf", terminof);
 }
 termino1 = termino2;
 termino2 = terminof;

@@ -1,12 +1,4 @@
-#include "holberton.h"
-/**
- * cap_string - capitalizes all words of a string
- * separators of words: space, tabulation, new line,
- * , ; . ! ? " ( ) { and }
- * @src: input value pointer
- * Return: char
- */
-
+italizes all words of a string
 char *cap_string(char *src)
 {
 
