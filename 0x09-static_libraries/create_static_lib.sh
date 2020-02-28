@@ -1,3 +1,3 @@
 #!/bin/bash
-ls *.c | while read F; do gcc -c -o `echo $F | tr .c .o ` $F; done 
+gcc -Wall -pedantic -Werror -Wextra -c *.c
 ar rc liball.a *.o
