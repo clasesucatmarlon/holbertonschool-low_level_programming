@@ -1,6 +1,8 @@
 #include <stdio.h>
 /**
  * main - prints its name
+ * @argc: receive numbers
+ * @argv: arrayi
  * Return: 0
  */
 
