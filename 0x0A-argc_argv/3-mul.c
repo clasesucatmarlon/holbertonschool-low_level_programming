@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
 	int mult;
 
-	if (argc < 2)
+	if (argc < 3)
 	{
 		printf("Error\n");
 		return (1);
@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
 		mult = a * b;
 		printf("%d\n", mult);
 	}
+
 	return (0);
 
 }
