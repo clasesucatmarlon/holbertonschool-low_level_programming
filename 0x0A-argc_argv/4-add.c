@@ -11,28 +11,28 @@
 int main(int argc, char *argv[])
 {
 
-	int valid, res, acum = 0;
+	int i, sum = 0;
 
-	for (valid = 1; valid < argc; ++valid)
-	{
-		if (isdigit(*argv[valid]) == 0)
-		{
-			printf("Error\n");
-			return (1);
-		}
-	}
-	if (argc <= 1)
+
+	if (argc == 1)
 	{
 		printf("0\n");
-		return (0);
 	}
 	else
 	{
-		for (acum = 0; acum < argc; acum++)
+		for (i = 1; i < argc; ++i)
 		{
-			res = res + (atoi(argv[acum]));
+			if (isalpha(*argv[i]))
+			{
+				printf("Error\n");
+				return (1);
+			}
+			else
+			{
+				sum = sum + (atoi(argv[i]));
+			}
 		}
-		printf("%d\n", res);
+		printf("%d\n", sum);
 	}
 	return (0);
 }
