@@ -4,7 +4,7 @@
 /**
  * main - add numbers positives
  * @argc: parameters values
- * @argv: array
+ * @argv: array arg
  * Return: int
  */
 
