@@ -1,17 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+int chang(int x, int c);
+
 /**
   * main - prints the minimum number of coins
   * to make change for an amount of money.
-  * @x: input valu
+  * @argc: input value
+  * @argv: input arrays
   * Return: int
   */
 
 int main(int argc, char *argv[])
 {
 
-	int a, c = 0;
+	int x, cont = 0;
 
 	if (argc != 2)
 	{
@@ -20,14 +23,27 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		a = atoi(argv[1]);
+		x = atoi(argv[1]);
+		chang(x, cont);
+	}
+	return (0);
+}
 
-		if (a < 0)
-		{
-			printf("0\n");
-		}
-		else
-		{
+/**
+  * chang - function auxiliary
+  * @a: value a
+  * @c: input valu
+  * Return: int
+  */
+
+int chang(int a, int c)
+{
+	if (a < 0)
+	{
+		printf("0\n");
+	}
+	else
+	{
 		while (a > 0)
 		{
 			if (a >= 25)
@@ -61,8 +77,6 @@ int main(int argc, char *argv[])
 			}
 		}
 		printf("%d\n", c);
-		}
 	}
 return (0);
-
 }
