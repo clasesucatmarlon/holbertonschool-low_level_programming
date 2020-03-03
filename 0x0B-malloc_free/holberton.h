@@ -17,4 +17,7 @@ int **alloc_grid(int width, int height);
 created by your alloc_grid*/
 void free_grid(int **grid, int height);
 
+/* task 5 - oncatenates all the arguments of your program*/
+char *argstostr(int ac, char **av);
+
 #endif
