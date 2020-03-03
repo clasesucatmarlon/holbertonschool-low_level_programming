@@ -10,5 +10,7 @@ char *_strdup(char *str);
 /* task 2 - concatened two string */
 char *str_concat(char *s1, char *s2);
 
+/* task 3 - ret a ptr to a 2 dimens array of int*/
+int **alloc_grid(int width, int height);
 
 #endif
