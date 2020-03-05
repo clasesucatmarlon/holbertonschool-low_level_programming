@@ -4,7 +4,7 @@
  * _realloc - reallocates a memory block
  * @ptr: ponit 1
  * @old_size: old size
- * new_size
+ * @new_size: new size
  * Return: void
  */
 
