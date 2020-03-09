@@ -15,8 +15,10 @@ struct dog
 	char *owner;
 };
 
+/* task 1 - nitialize a variable of type struct dog */
 void init_dog(struct dog *d, char *name, float age, char *owner);
 
-
+/* task 2 - prints a struct dog */
+void print_dog(struct dog *d);
 
 #endif
