@@ -1,11 +1,9 @@
 #include <stdlib.h>
 #include "dog.h"
 /**
- * new_dog - function
- * @name: name of dog
- * @age: age of doc
- * @owner: owner of dog
- * Return: dog_t
+ * free_dog - function
+ * @d: name of dog
+ * Return: void
  */
 
 void free_dog(dog_t *d)
