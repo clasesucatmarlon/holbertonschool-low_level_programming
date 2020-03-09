@@ -24,4 +24,6 @@ void print_dog(struct dog *d);
 /* task 4 - creates a new dog */
 dog_t *new_dog(char *name, float age, char *owner);
 
+/* task 5 - frees dogs */
+void free_dog(dog_t *d);
 #endif
