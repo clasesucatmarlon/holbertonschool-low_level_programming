@@ -13,7 +13,7 @@ struct dog
 	char *name;
 	float age;
 	char *owner;
-};
+} dog_t;
 
 /* task 1 - nitialize a variable of type struct dog */
 void init_dog(struct dog *d, char *name, float age, char *owner);
