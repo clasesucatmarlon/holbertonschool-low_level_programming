@@ -7,58 +7,44 @@
  * print_all - function prints anything
  * Return: void
  */
-void op_char(char *s)
-{
-	printf("%c", s);
-}
-
-void op_int(char *s)
-{
-	printf("%d", s);
-}
-
-void op_string(char *s)
-{
-	printf("%s", s);
-}
-
-void op_float(char *s)
-{
-	printf("%f", s);
-}
-
-typedef struct fm
-{
-	char *op;
-	void (*f)(char *);
-} fmt;
-
 void print_all(const char * const format, ...)
 {
+	char *p;
+	int x = 0, flags = 1;
+	va_list strList;
 
-	fmt ops[] = {
-	{"c", op_char},
-	{"i", op_int},
-	{"f", op_float},
-	{"s", op_string},
-	{NULL, NULL}
-	};
-
-	va_list list;
-	int i = 0;
-
-	va_start(list, format);
-
-	while (ops[i].op != NULL)
+	va_start(strList, format);
+	while (format && format[x])
 	{
-		/*if (*ops[i].op == *format)*/
-		if (*ops[i].op == va_arg(list, char *));
+	  
+		switch (format[x])
 		{
-			return (ops[i].f);
+			case 'c':
+				printf("%c", va_arg(strList, int));
+				break;
+			case 'i':
+				printf("%d", va_arg(strList, int));
+				break;
+			case 'f':
+				printf("%f", va_arg(strList, double));
+				break;
+			case 's':
+			p = va_arg(strList, char*);
+			if (p != NULL)
+			{
+				printf("%s", p);
+				break;
+			}
+			printf("(nill)");
+			break;
+			default:
+				flags = 0;
 		}
-		
-		i++;
+			if (format[x + 1] != 0 && flags)
+				printf(", ");
+			x++;
+			flags++;
 	}
-
-		va_end(list);
+	printf("\n");
+	va_end(strList);
 }
