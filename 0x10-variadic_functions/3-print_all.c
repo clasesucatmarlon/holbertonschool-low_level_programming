@@ -29,18 +29,18 @@ void print_all(const char * const format, ...)
 				printf("%f", va_arg(strList, double));
 				break;
 			case 's':
-			p = va_arg(strList, char*);
-			if (p != NULL)
-			{
-				printf("%s", p);
+				p = va_arg(strList, char*);
+				if (p != NULL)
+				{
+					printf("%s", p);
+					break;
+				}
+				printf("(nill)");
 				break;
-			}
-			printf("(nill)");
-			break;
 			default:
 				flags = 0;
 		}
-			if (format[x + 1] != 0 && flags)
+			if (format[x + 1] != '\0' && flags)
 				printf(", ");
 			x++;
 			flags++;
