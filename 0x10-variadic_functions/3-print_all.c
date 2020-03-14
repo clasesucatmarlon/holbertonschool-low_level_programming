@@ -5,6 +5,7 @@
 
 /**
  * print_all - function prints anything
+ * @format: received parameters
  * Return: void
  */
 void print_all(const char * const format, ...)
@@ -16,7 +17,6 @@ void print_all(const char * const format, ...)
 	va_start(strList, format);
 	while (format && format[x])
 	{
-	  
 		switch (format[x])
 		{
 			case 'c':
