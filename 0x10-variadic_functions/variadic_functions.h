@@ -13,16 +13,4 @@ void print_strings(const char *separator, const unsigned int n, ...);
 /* task 3 - prints anything */
 void print_all(const char * const format, ...);
 
-typedef struct op
-{
-	char *op;
-	void (*f)(char *);
-} fmt;
-
-void op_char(char *s);
-void op_int(char *s);
-void op_string(char *s);
-void op_float(char *s);
-
-
 #endif
