@@ -18,9 +18,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	char *p;
 
 	va_start(strList, n);
-	if (separator != NULL)
+
+	for (i = 0; i < n; i++)
 	{
-		for (i = 0; i < n; i++)
+		if (separator != NULL)
 		{
 			p = va_arg(strList, char *);
 			if (p != NULL)
@@ -42,5 +43,4 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	}
 	printf("\n");
 	va_end(strList);
-
 }
