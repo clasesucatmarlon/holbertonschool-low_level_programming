@@ -21,26 +21,25 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	for (i = 0; i < n; i++)
 	{
-		if (separator != NULL)
+		p = va_arg(strList, char *);
+		if (p != NULL)
 		{
-			p = va_arg(strList, char *);
-			if (p != NULL)
+			if (i < n - 1)
 			{
-				if (i < n - 1)
-				{
+				if (separator != NULL)
 					printf("%s%s", p, separator);
-				}
-				else
-				{
-					printf("%s", p);
-				}
 			}
 			else
 			{
-				printf("(nil)");
+				printf("%s", p);
 			}
 		}
+		else
+		{
+			printf("(nil)");
+		}
 	}
+
 	printf("\n");
 	va_end(strList);
 }
