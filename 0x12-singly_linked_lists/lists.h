@@ -28,7 +28,7 @@ int _putchar(char c);
 /* Funtion determine longituf of string */
 int large(const char *str);
 
-/* Function for create new node */ 
+/* Function for create new node */
 list_t *createNewNode(const char *str);
 
 /* task 0 - prints all the elements of a list_t list */
