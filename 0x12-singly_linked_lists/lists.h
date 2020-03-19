@@ -29,7 +29,7 @@ int _putchar(char c);
 int large(const char *str);
 
 /* Function for create new node */ 
-list_t *createNewNode(const char *str)
+list_t *createNewNode(const char *str);
 
 /* task 0 - prints all the elements of a list_t list */
 size_t print_list(const list_t *h);
@@ -42,6 +42,8 @@ list_t *add_node(list_t **head, const char *str);
 
 /* task 3 - adds a new node at the end of a list_t list */
 list_t *add_node_end(list_t **head, const char *str);
+
+/* task 4 */
 
 
 #endif
