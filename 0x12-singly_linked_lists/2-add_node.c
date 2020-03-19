@@ -16,9 +16,9 @@ list_t *add_node(list_t **head, const char *str)
 	newNode = malloc(sizeof(list_t));
 	if (newNode == NULL)
 		return (NULL);
-	
+
 	/*Initialize the next pointer witch NULL*/
-	if (*head == NULL) 
+	if (*head == NULL)
 		newNode->next = NULL;
 	else
 		/*Asigned head to newNode*/
@@ -29,6 +29,11 @@ list_t *add_node(list_t **head, const char *str)
 	return (*head);
 }
 
+/**
+ * large - determinate long of string
+ * @str: String to assigned to the node
+ * Return: large of string
+ */
 int large(const char *str)
 {
 
@@ -37,10 +42,10 @@ int large(const char *str)
 	if (str == NULL)
 		return (0);
 
-    while (str[l] != '\0')
-    {
-        l++;
-    }
+	while (str[l] != '\0')
+	{
+		l++;
+	}
 
 	return (l);
 }
