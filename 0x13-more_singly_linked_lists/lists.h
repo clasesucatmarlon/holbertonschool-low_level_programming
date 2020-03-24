@@ -59,4 +59,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n);
 /* task 10 - deletes the node at index index of a listint_t linked list */
 int delete_nodeint_at_index(listint_t **head, unsigned int index);
 
+/* task 100 - reverses a listint_t linked list */
+listint_t *reverse_listint(listint_t **head);
+
 #endif
