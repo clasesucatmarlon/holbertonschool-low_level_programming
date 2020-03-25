@@ -7,12 +7,7 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t i = 0, j;
-	const listint_t *temp_head = NULL, *loop_node = NULL;
-
-	temp_head = head;
-
-	if (!head)
-		return (98);
+	const listint_t *temp_head = head, *loop_node;
 
 	while (temp_head)
 	{
