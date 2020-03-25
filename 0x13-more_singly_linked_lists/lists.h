@@ -62,4 +62,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index);
 /* task 100 - reverses a listint_t linked list */
 listint_t *reverse_listint(listint_t **head);
 
+/* tasl 101 - prints a listint_t linked list */
+size_t print_listint_safe(const listint_t *head);
+
 #endif
