@@ -23,10 +23,11 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 		}
 
-		sum <<= 1;
+		/*sum <<= 1;*/
+		sum = sum << 1;
 		if (b[i] == '1')
 		{
-			sum = sum + 1;
+			sum = sum ^ 1;
 		}
 
 		i++;
