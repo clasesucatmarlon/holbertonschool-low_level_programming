@@ -21,7 +21,7 @@ listint_t *find_listint_loop(listint_t *head)
 		while (aux && control != aux)
 		{
 			if (control == aux->next)
-			return (control);
+				return (control);
 			control = control->next;
 		}
 	}
