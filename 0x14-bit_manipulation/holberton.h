@@ -25,4 +25,6 @@ int clear_bit(unsigned long int *n, unsigned int index);
 /*flip to get from one number to another */
 unsigned int flip_bits(unsigned long int n, unsigned long int m);
 
+/* task 100 - Find endiannes type */
+int get_endianness(void);
 #endif
