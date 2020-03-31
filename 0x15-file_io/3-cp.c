@@ -71,12 +71,12 @@ int open_files(char *fileFrom, char *fileTo)
 	read_files(fileFrom2, fileTo2, fileFrom, fileTo);
 	if (close(fileFrom2) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileFrom2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", fileFrom);
 		exit(100);
 	}
 	if (close(fileTo2) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileTo2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", fileTo);
 		exit(100);
 	}
 	return (0);
@@ -133,8 +133,7 @@ int write_to_file(char *buff, int fileTo2, int read_chars, char *fileTo)
 	{
 		if (write(fileTo2, &buff[i], 1) == -1)
 		{
-			dprintf(STDERR_FILENO,
-			"Error: Can't write to %s\n", fileTo);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileTo);
 			exit(99);
 		}
 	}
