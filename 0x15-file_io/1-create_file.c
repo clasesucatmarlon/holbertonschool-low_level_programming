@@ -25,8 +25,16 @@ int create_file(const char *filename, char *text_content)
 	openFile = open(filename, O_CREAT | O_EXCL | O_WRONLY, 0600);
 	if (openFile < 0)
 	{
+		if (errno == EEXIST)
+		{
+			openFile = open(filename, O_WRONLY | O_TRUNC);
+			if (openFile == -1)
+				return (-1);
+		}
+	else
 		return (-1);
 	}
+
 	for (i = 0; text_content[i] != '\0'; i++)
 	{
 		if (write(openFile, &text_content[i], 1) == -1)
