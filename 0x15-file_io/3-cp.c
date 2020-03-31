@@ -1,5 +1,8 @@
 #include "holberton.h"
 
+int open_files(char *fileFrom, char *fileTo);
+int read_files(int fileFrom2, int fileTo2, char *fileFrom, char *fileTo);
+int write_to_file(char *buff, int fileTo2, int read_chars, char *fileTo);
 /**
  * main - Entry point
  * @argc: Count of the arguments to start the program
