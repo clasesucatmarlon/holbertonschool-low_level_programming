@@ -15,5 +15,11 @@ int create_file(const char *filename, char *text_content);
 /* task 2 - append text to file */
 int append_text_to_file(const char *filename, char *text_content);
 
+/* task 3 - copies the content of a file to another file */
+int open_files(char *fileFrom, char *fileTo);
+int read_files(int fileFrom2, int fileTo2, char *fileFrom, char *fileTo);
+int write_to_file(char *buff, int fileTo2, int read_chars, char *fileTo);
+
+
 
 #endif
