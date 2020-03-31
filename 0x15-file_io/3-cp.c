@@ -19,6 +19,19 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+
+	if (argv[1] == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
+		exit(98);
+	}
+
+	if (argv[2] == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileTo);
+		exit(99);
+	}
+
 	fileFrom = argv[1];
 	fileTo = argv[2];
 
