@@ -41,7 +41,7 @@ int open_files(char *fileFrom, char *fileTo)
 	fileFrom2 = open(fileFrom, O_RDONLY);
 	if (fileFrom2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", fileFrom);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
 		exit(98);
 	}
 
@@ -51,7 +51,7 @@ int open_files(char *fileFrom, char *fileTo)
 		fileTo2 = open(fileTo, O_WRONLY | O_TRUNC);
 		if (fileTo2 == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", fileTo);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileTo);
 			exit(99);
 		}
 	}
