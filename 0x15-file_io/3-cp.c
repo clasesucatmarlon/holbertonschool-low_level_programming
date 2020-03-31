@@ -22,13 +22,13 @@ int main(int argc, char **argv)
 
 	if (argv[1] == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
 	if (argv[2] == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileTo);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 
