@@ -1,132 +1,133 @@
 #include "holberton.h"
-int open_files(char *f_from, char *f_to);
-int read_files(int from_fd, int to_fd, char *f_from, char *f_to);
-int write_to_file(char *buff, int to_fd, int read_chars, char *f_to);
 
+int open_files(char *fileFrom, char *fileTo);
+int read_files(int newFrom, int newTo, char *fileFrom, char *fileTo);
+int write_to_file(char *buff, int newTo, int read_chars, char *fileTo);
 /**
  * main - Entry point
- * @argc: Count of the arguments to start the program.
- * @argv: An array of strings containing the arguments passed to the program.
+ * @argc: Count of the arguments to start the program
+ * @argv: An array of strings containing the arguments passed to the program
  * Return: zero
  */
 int main(int argc, char **argv)
 {
-	char *f_from;
-	char *f_to;
+	char *fileFrom;
+	char *fileTo;
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	f_from = argv[1];
-	f_to = argv[2];
 
-	open_files(f_from, f_to);
-	exit(0);
-	return (0);
-}
-
-/**
- * open_files - Opens the files necessary for copying contents.
- * @f_from: Name of the file FILE_FROM.
- * @f_to: Name of the file FILE_TO.
- * Return: zero
- */
-int open_files(char *f_from, char *f_to)
-{
-	int from_fd;
-	int to_fd;
-
-	from_fd = open(f_from, O_RDONLY);
-	if (from_fd == -1)
+	if (argv[1] == NULL)
 	{
-		dprintf(STDERR_FILENO,
-		"Error: Can't read from file %s\n", f_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	to_fd = open(f_to, O_CREAT | O_EXCL | O_WRONLY, 0664);
-	if (to_fd == -1)
+
+	if (argv[2] == NULL)
 	{
-		to_fd = open(f_to, O_WRONLY | O_TRUNC);
-		if (to_fd == -1)
-		{
-			dprintf(STDERR_FILENO,
-			"Error: Can't write to %s\n", f_to);
-			exit(99);
-		}
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
 	}
-	read_files(from_fd, to_fd, f_from, f_to);
-	if (close(from_fd) == -1)
+
+	fileFrom = argv[1];
+	fileTo = argv[2];
+
+	open_files(fileFrom, fileTo);
+	return (0);
+}
+
+/**
+ * open_files - Opens the files necessary for copying contents
+ * @fileFrom: Name of the file FileFrom
+ * @fileTo: Name of the file FileTo
+ * Return: zero
+ */
+int open_files(char *fileFrom, char *fileTo)
+{
+	int newFrom;
+	int newTo;
+
+	newFrom = open(fileFrom, O_RDONLY);
+	if (newFrom == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from_fd);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
+		exit(98);
+	}
+
+	newTo = open(fileTo, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (newTo == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileTo);
+		exit(99);
+	}
+
+	read_files(newFrom, newTo, fileFrom, fileTo);
+	if (close(newFrom) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", newFrom);
 		exit(100);
 	}
-	if (close(to_fd) == -1)
+	if (close(newTo) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", to_fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", newTo);
 		exit(100);
 	}
 	return (0);
 }
+
 /**
- * read_files - Reads the file FROM_FILE.
- * @from_fd: File descriptor for FROM_FILE.
- * @to_fd: File descriptor for TO_FILE.
- * @f_from: Name of the file FILE_FROM.
- * @f_to: Name of the file FILE_TO.
+ * read_files - Reads the file fromFile
+ * @newFrom: File descriptor newFrom
+ * @newTo: File descriptor for newTo
+ * @fileFrom: Name of the file fileFrom
+ * @fileTo: Name of the file fileTo
  * Return: zero
  */
-int read_files(int from_fd, int to_fd, char *f_from, char *f_to)
+int read_files(int newFrom, int newTo, char *fileFrom, char *fileTo)
 {
 	int read_chars;
 	char buff[1024];
 
-	read_chars = read(from_fd, buff, 1024);
+	read_chars = read(newFrom, buff, 1024);
 	if (read_chars == -1)
 	{
-		dprintf(STDERR_FILENO,
-		"Error: Can't read from file %s\n", f_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
 		exit(98);
 	}
-	write_to_file(buff, to_fd, read_chars, f_to);
+
+	write_to_file(buff, newTo, read_chars, fileTo);
 	while (read_chars != 0)
 	{
-		read_chars = read(from_fd, buff, 1024);
+		read_chars = read(newFrom, buff, 1024);
 		if (read_chars == -1)
 		{
-			dprintf(STDERR_FILENO,
-			"Error: Can't read from file %s\n", f_from);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
 			exit(98);
 		}
 		if (read_chars == 0)
 			return (0);
-		write_to_file(buff, to_fd, read_chars, f_to);
+		write_to_file(buff, newTo, read_chars, fileTo);
 	}
 	return (0);
 }
 
 /**
  * write_to_file - Writes to a file TO_FILE.
- * @buff: An array of characters containing up to 1024 chars.
- * @to_fd: File descriptor of file TO_FILE.
- * @read_chars: A number representing how many characters were read and need to
- * be written.
- * @f_to: Name of the file FILE_TO.
- * Return: Always Zero. Exit 99.
+ * @buff: An array of characters containing until 1024 chars.
+ * @newTo: File descriptor of newTo.
+ * @read_chars: representing how many charact were read and need to be written
+ * @fileTo: Name of the file fileTo
+ * Return: zero
  */
-int write_to_file(char *buff, int to_fd, int read_chars, char *f_to)
+int write_to_file(char *buff, int newTo, int read_chars, char *fileTo)
 {
-	int i;
-
-	for (i = 0; i < read_chars; i++)
+	if (write(newTo, buff, read_chars) == -1)
 	{
-		if (write(to_fd, &buff[i], 1) == -1)
-		{
-			dprintf(STDERR_FILENO,
-			"Error: Can't write to %s\n", f_to);
-			exit(99);
-		}
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileTo);
+		exit(99);
 	}
 	return (0);
 }
