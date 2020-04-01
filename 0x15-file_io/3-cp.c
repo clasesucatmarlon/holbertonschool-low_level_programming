@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 int open_files(char *fileFrom, char *fileTo);
-int read_files(int fileFrom2, int fileTo2, char *fileFrom, char *fileTo);
-int write_to_file(char *buff, int fileTo2, int read_chars, char *fileTo);
+int read_files(int newFrom, int newTo, char *fileFrom, char *fileTo);
+int write_to_file(char *buff, int newTo, int read_chars, char *fileTo);
 /**
  * main - Entry point
  * @argc: Count of the arguments to start the program
@@ -48,63 +48,63 @@ int main(int argc, char **argv)
  */
 int open_files(char *fileFrom, char *fileTo)
 {
-	int fileFrom2;
-	int fileTo2;
+	int newFrom;
+	int newTo;
 
-	fileFrom2 = open(fileFrom, O_RDONLY);
-	if (fileFrom2 == -1)
+	newFrom = open(fileFrom, O_RDONLY);
+	if (newFrom == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
 		exit(98);
 	}
 
-	fileTo2 = open(fileTo, O_CREAT | O_WRONLY, 0664);
-	if (fileTo2 == -1)
+	newTo = open(fileTo, O_CREAT | O_EXCL | O_WRONLY, 0664);
+	if (newTo == -1)
 	{
-		fileTo2 = open(fileTo, O_WRONLY | O_TRUNC);
-		if (fileTo2 == -1)
+		newTo = open(fileTo, O_WRONLY | O_TRUNC);
+		if (newTo == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileTo);
 			exit(99);
 		}
 	}
-	read_files(fileFrom2, fileTo2, fileFrom, fileTo);
-	if (close(fileFrom2) == -1)
+	read_files(newFrom, newTo, fileFrom, fileTo);
+	if (close(newFrom) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", fileFrom);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", newFrom);
 		exit(100);
 	}
-	if (close(fileTo2) == -1)
+	if (close(newTo) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", fileTo);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", newTo);
 		exit(100);
 	}
 	return (0);
 }
 
 /**
- * read_files - Reads the file fomFile
- * @fileFrom2: File descriptor fileFrom2
- * @fileTo2: File descriptor for fileTo2
+ * read_files - Reads the file fromFile
+ * @newFrom: File descriptor newFrom
+ * @newTo: File descriptor for newTo
  * @fileFrom: Name of the file fileFrom
  * @fileTo: Name of the file fileTo
  * Return: zero
  */
-int read_files(int fileFrom2, int fileTo2, char *fileFrom, char *fileTo)
+int read_files(int newFrom, int newTo, char *fileFrom, char *fileTo)
 {
 	int read_chars;
 	char buff[1024];
 
-	read_chars = read(fileFrom2, buff, 1024);
+	read_chars = read(newFrom, buff, 1024);
 	if (read_chars == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
 		exit(98);
 	}
-	write_to_file(buff, fileTo2, read_chars, fileTo);
+	write_to_file(buff, newTo, read_chars, fileTo);
 	while (read_chars != 0)
 	{
-		read_chars = read(fileFrom2, buff, 1024);
+		read_chars = read(newFrom, buff, 1024);
 		if (read_chars == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
@@ -112,7 +112,7 @@ int read_files(int fileFrom2, int fileTo2, char *fileFrom, char *fileTo)
 		}
 		if (read_chars == 0)
 			return (0);
-		write_to_file(buff, fileTo2, read_chars, fileTo);
+		write_to_file(buff, newTo, read_chars, fileTo);
 	}
 	return (0);
 }
@@ -120,18 +120,18 @@ int read_files(int fileFrom2, int fileTo2, char *fileFrom, char *fileTo)
 /**
  * write_to_file - Writes to a file TO_FILE.
  * @buff: An array of characters containing until 1024 chars.
- * @fileTo2: File descriptor of fileTo2.
+ * @newTo: File descriptor of newTo.
  * @read_chars: representing how many charact were read and need to be written
  * @fileTo: Name of the file fileTo
  * Return: zero
  */
-int write_to_file(char *buff, int fileTo2, int read_chars, char *fileTo)
+int write_to_file(char *buff, int newTo, int read_chars, char *fileTo)
 {
 	int i;
 
 	for (i = 0; i < read_chars; i++)
 	{
-		if (write(fileTo2, &buff[i], 1) == -1)
+		if (write(newTo, &buff[i], 1) == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileTo);
 			exit(99);
