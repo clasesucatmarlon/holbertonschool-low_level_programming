@@ -58,7 +58,7 @@ int open_files(char *fileFrom, char *fileTo)
 		exit(98);
 	}
 
-	fileTo2 = open(fileTo, O_CREAT | O_EXCL | O_WRONLY, 0664);
+	fileTo2 = open(fileTo, O_CREAT | O_WRONLY, 0664);
 	if (fileTo2 == -1)
 	{
 		fileTo2 = open(fileTo, O_WRONLY | O_TRUNC);
