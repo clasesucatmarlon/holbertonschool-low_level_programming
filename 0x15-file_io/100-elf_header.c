@@ -10,6 +10,7 @@
 int main(int argc, char *argv[])
 {
 	int openFile, readFile;
+	char header[9];
 
 	if (argc != 2)
 	{
@@ -17,7 +18,9 @@ int main(int argc, char *argv[])
 		EXIT(98);
 	}
 	openFile = open(argv[1], O_RDONLY);
-	if (openFile == -1)
+	readFile = read(openfile, header, 9);
+
+	if (readFile == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
