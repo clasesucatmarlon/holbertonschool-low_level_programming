@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
 	int openFile, readFile;
-	char header[9];
+	char header[5];
 
 	if (argc != 2)
 	{
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		EXIT(98);
 	}
 	openFile = open(argv[1], O_RDONLY);
-	readFile = read(openfile, header, 9);
+	readFile = read(openfile, header, 5);
 
 	if (readFile == -1)
 	{
