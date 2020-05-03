@@ -4,46 +4,41 @@
  * insert_dnodeint_at_index - insert node in idx
  * @h: head of nodes
  * @idx: index to insert nodes
- * @n: data to insert in new node
- * Return: list with new node
+ * @n: data to insert in node_new node
+ * Return: list with node_new node
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	unsigned int count = 0;
-	dlistint_t *new_node = NULL;
-	dlistint_t *tmp_node = NULL;
-
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL || h == NULL)
+	dlistint_t *node_tmp, *node_new;
+ 
+	node_new = malloc(sizeof(dlistint_t));
+	if (!node_new)
 		return (NULL);
-	new_node->n = n;
-	tmp_node = *h;
+	node_new->n = n;
+	node_tmp = *h;
+	if (!node_tmp)
+	{
+		node_new->prev = NULL;
+		node_new->next = NULL;
+		*h = node_new;
+		return (node_new);
+	}
 	if (idx == 0)
 	{
-		*h = new_node;
-		new_node->next = tmp_node;
-		new_node->prev = NULL;
-		tmp_node->prev = new_node;
-		return (new_node);
+		node_new->prev = NULL;
+		node_new->next = node_tmp;
+		node_tmp->prev = node_new;
+		*h = node_new;
+		return (node_new);
 	}
-
-	while (tmp_node->next != NULL)
-	{
-		if (count == idx) /* find position to insert */
-		{
-			new_node->prev = tmp_node; /* current prev to back link */
-			new_node->next = tmp_node->next; /* current next to from link */
-			tmp_node->next = new_node; /* back next link */
-			new_node->prev = new_node; /* from prev link */
-		}
-		tmp_node = tmp_node->next;
-		count++;
-	}
-	if (count < idx)
-	{
-		free(new_node);
+	for ( ; idx > 1 && node_tmp->next; idx--)
+		node_tmp = node_tmp->next;
+	if (idx > 1 && !node_tmp->next)
 		return (NULL);
-	}
-
-	return (new_node);
+	node_new->prev = node_tmp;
+	node_new->next = node_tmp->next ? node_tmp->next : NULL;
+	if (node_tmp->next)
+		node_tmp->next->prev = node_new;
+	node_tmp->next = node_tmp->next && idx > 1 ? NULL : node_new;
+	return (node_new);
 }
