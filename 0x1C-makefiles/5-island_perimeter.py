@@ -5,6 +5,8 @@ create function for island perimeter
 
 
 def island_perimeter(grid):
+    """ count the perimeter of to island
+    """
     cx, cy = 0, 0
     len_grid = len(grid)
     for x in range(len_grid):
