@@ -2,31 +2,55 @@
 #include <math.h>
 
 /**
- * jump_search - jump search
- * @array: array of int
+ * jump - linear search an array for a value
+ * @array: input array
+ * @start: starting index
+ * @end: ending index
  * @size: size of array
- * @value: value to find
- * Return: index or -1
+ * @value: value to search for
+ * Return: index of array where value is found, -1 if not found
+ */
+
+int jump(int *array, int start, int end, int size, int value)
+{
+	printf("Value found between indexes [%i] and [%i]\n", start, end);
+	if (end >= size)
+		end = size - 1;
+	for (; start <= end; start++)
+	{
+		printf("Value checked array[%i] = [%i]\n", start, array[start]);
+		if (array[start] == value)
+			return (start);
+	}
+	return (-1);
+}
+
+/**
+ * jump_search - searches for a value in an array of integers
+ * @array: input array
+ * @size: size of array
+ * @value: value to search for
+ * Return: index of array where value is found, -1 if not found
  */
 
 int jump_search(int *array, size_t size, int value)
 {
-	int step, n;
+	unsigned int i, start, end;
+	int step = sqrt(size);
 
-	n = 0;
-	step = sqrt(size);
-	if (array == NULL)
+	if (!array)
 		return (-1);
-	while (array[step - 1] < value)
+	for (i = 0; i < size; i += step)
 	{
-		printf("Value checked array[%d] = [%d]\n", n, array[n]);
-		n = step;
-		step += sqrt(size);
+		if (array[i] >= value)
+		{
+			start = i - step;
+			end = i;
+			return (jump(array, start, end, size, value));
+		}
+		printf("Value checked array[%i] = [%i]\n", i, array[i]);
+		if (array[i] == value)
+			return (i);
 	}
-	printf("Value found between indexes [%d] and [%d]\n", n - step, n);
-	while (array[n] < value)
-		n++;
-	if (array[n] == value)
-		return (n);
-	return (-1);
+	return (jump(array, i - step, i, size, value));
 }
